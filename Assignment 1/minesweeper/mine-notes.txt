@@ -1,0 +1,57 @@
+--> Using single array to create multidimensional array
+
+int width = 2;
+int height = 2;
+
+int matrix[4] = {
+    1, 2,
+    3, 4
+};
+
+for (int i = 0; i < height; i++) {
+    for (int j = 0; j < width; j++) {
+        // stride is width
+        matrix[width * i + j] = 0;
+        // instead of matrix[i][j]
+    }
+}
+
+matrix[width * 1 + 1] = 3;
+
+
+
+#include <stdio.h>
+
+int main(void) {
+
+	int width = 2;
+	int height = 2;
+
+	int matrix[4];
+
+	puts("Enter four numbers:");
+	
+	for (int i = 0; i < height; i++) {
+		for (int j = 0; j < width; j++) {
+			int value;
+			scanf("%d", &value);
+			matrix[i * width + j] = value;
+		}
+	}
+	
+	puts("Matrix:");
+	
+	for (int i = 0; i < height; i++) {
+		for (int j = 0; j < width; j++) {
+			printf("%d ", matrix[i * width + j]);	
+		}
+		printf("\n");
+	}
+	
+	return 0;
+}
+
+
+
+https://en.wikipedia.org/wiki/Row-major_order
+https://en.wikipedia.org/wiki/Stride_of_an_array
